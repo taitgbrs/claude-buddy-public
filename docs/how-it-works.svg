@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 310" font-family="Helvetica, Arial, sans-serif" role="img" aria-label="Claude Code hooks, alarms and deploy workflows post a word to an ntfy topic. The stick reads that topic over WiFi and shows a face.">
+  <rect width="860" height="310" rx="12" fill="#0f0f23"/>
+  <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#fff"/></marker></defs>
+  <g fill="none" stroke="#fff" stroke-width="2">
+    <path marker-end="url(#a)" d="M230 65C300 65 300 140 358 140"/><path marker-end="url(#a)" d="M230 155H358"/><path marker-end="url(#a)" d="M230 245C300 245 300 170 358 170"/><path marker-end="url(#a)" d="M510 155H618"/>
+  </g>
+  <g fill="#143c46"><rect x="20" y="30" width="210" height="70" rx="10" fill="#d97757"/><rect x="20" y="120" width="210" height="70" rx="10"/><rect x="20" y="210" width="210" height="70" rx="10"/><rect x="360" y="105" width="150" height="100" rx="10"/></g>
+  <rect x="620" y="85" width="220" height="140" rx="16" fill="#e8622c"/><rect x="640" y="103" width="160" height="104" rx="4" fill="#d97757" stroke="#0f0f23" stroke-width="3"/><circle cx="820" cy="155" r="10" fill="#b84a1c"/>
+  <g fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"><path d="M672 146q12-18 24 0M744 146q12-18 24 0M703 158q17 22 34 0"/></g>
+  <g fill="#fff" text-anchor="middle">
+    <g font-size="17" font-weight="bold"><text x="125" y="61" fill="#111">Claude Code hook</text><text x="125" y="151">Your alarms</text><text x="125" y="241">GitHub Actions</text><text x="435" y="151">ntfy.sh topic</text><text x="720" y="195" font-size="14">your turn!</text></g>
+    <g font-size="13"><text x="125" y="82" fill="#111">working, input, done</text><text x="125" y="172">alarm, alarm-ok</text><text x="125" y="262">deploy-ok, deploy-fail</text><text x="435" y="173">your secret name</text><text x="564" y="143">WiFi</text><text x="730" y="250">M5StickC Plus: face, LED, beep</text></g>
+  </g>
+</svg>

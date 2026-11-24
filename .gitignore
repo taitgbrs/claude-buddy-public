@@ -2,3 +2,4 @@
 backup/
 *.png
 src/ota_key.h
+!docs/*.png

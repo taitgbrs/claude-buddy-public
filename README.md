@@ -3,14 +3,20 @@
 M5StickC Plus desk buddy. Shows a face for what Claude Code is doing, and blinks the red LED and chirps
 when Claude is done or needs you. Also shows Lambda alarms and deploy results.
 
-| Face | Meaning | Sent by |
-|---|---|---|
-| Sleeping, dim | idle / you said "got it" | button A or a shake |
-| Eyes looking around, "working..." | Claude is working | hooks `UserPromptSubmit`, `PostToolUse` |
-| Orange, ^ ^ bouncing, LED blinks, chirp | **done, your turn** | hook `Stop` |
-| Yellow, wide eyes, LED blinks, double beep | **needs input** (permission prompt / waiting) | hook `Notification` |
-| Red, worried, "lambda alarm" | a CloudWatch alarm fired; clears on recovery | your own alarm Lambda (posts `alarm` / `alarm-ok`) |
-| Purple, worried, "deploy failed" / green "deployed!" (8 s) | GitHub Actions deploy result | workflow step (below) |
+<img src="docs/demo.gif" width="360" alt="Buddy sleeps, works, asks for input, works again, then says your turn">
+
+Images are rendered from the firmware's own drawing code.
+
+| Screen | Face | Meaning | Sent by |
+|---|---|---|---|
+| <img src="docs/sleeping.png" width="160" alt="sleeping screen"> | Sleeping, dim | idle / you said "got it" | button A or a shake |
+| <img src="docs/working.png" width="160" alt="working screen"> | Eyes looking around, "working..." | Claude is working | hooks `UserPromptSubmit`, `PostToolUse` |
+| <img src="docs/done.png" width="160" alt="done screen"> | Orange, ^ ^ bouncing, LED blinks, chirp | **done, your turn** | hook `Stop` |
+| <img src="docs/needs-input.png" width="160" alt="needs-input screen"> | Yellow, wide eyes, LED blinks, double beep | **needs input** (permission prompt / waiting) | hook `Notification` |
+| <img src="docs/alarm.png" width="160" alt="alarm screen"> | Red, worried, "lambda alarm" | a CloudWatch alarm fired; clears on recovery | your own alarm Lambda (posts `alarm` / `alarm-ok`) |
+| <img src="docs/deploy-failed.png" width="160" alt="deploy failed screen"><br><img src="docs/deployed.png" width="160" alt="deployed screen"> | Purple, worried, "deploy failed" / green "deployed!" (8 s) | GitHub Actions deploy result | workflow step (below) |
+
+<img src="docs/markers.png" width="240" alt="Context bar top left, red low battery icon and red offline dot top right">
 
 Corner markers: **`237k` + bar** (top left) = context window used at the last done/input; **battery icon** (top
 right) only when running on battery, red under 20 %, one low beep at 15 %; **red dot** = no connection to ntfy.
@@ -18,6 +24,8 @@ right) only when running on battery, red under 20 %, one low beep at 15 %; **red
 Alarm and deploy-failed faces stay on top of the Claude faces until you acknowledge them (or the alarm recovers).
 
 ## How it works
+
+![Hooks, alarms and workflows post a word to your ntfy topic; the stick reads it over WiFi and shows a face](docs/how-it-works.svg)
 
 ```
 Claude Code hook / alarm Lambda / workflow --curl--> ntfy.sh/<topic> <--HTTPS stream-- M5Stick on WiFi
